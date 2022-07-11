@@ -1,13 +1,23 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
 <footer>
   <div style="display:flex">
     {{- range $index, $key := .Site.Params.Social -}}
     <a class="soc" href="{{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
+    <!-- check if $key is equal to google-scholar -->
+    {{- if eq $key.name "Google Scholar" -}}
+    <a class="soc" href="{{ $key.url }}" title=" {{$key.name}}"><i class="ai ai-google-scholar ai-1.25x"></i></a>
+    {{- end -}}
+    <!-- check if $key is equal to ai-dblp -->
+    {{- if eq $key.name "DBLP" -}}
+    <a class="soc" href="{{ $key.url }}" title=" {{$key.name}}"><i class="ai ai-dblp-square ai-1.25x"></i></a>
+    {{- end -}}
     <a class="border"></a>
     {{- end -}}
   </div>
   <div class="footer-info">
-    {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} | {{ end }} <a
-      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+    {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} {{ end }} | Built with <a
+      href="https://github.com/athul/archie">Archie Theme</a> + <a href="https://gohugo.io">Hugo</a>
   </div>
 </footer>
 {{ if not .Site.IsServer }}
