@@ -11,7 +11,9 @@
 			<strong>tl;dr:</strong>
 			{{ .Params.tldr }}
 		</div>{{ end }}
+		{{ if .Params.ShowReadingTime }}
 		<span class="f6 mv4 dib tracked"> {{ .Params.ReadingTime }} minutes read </span>
+		{{ end }}
 		<section class="body">
 			{{ .Content }}
 		</section>
